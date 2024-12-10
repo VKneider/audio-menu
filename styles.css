@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1e293b; /* Azul muy oscuro */
+    color: white;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column; /* Botones en columna */
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  @media (max-width: 600px) {
+    .menu {
+      padding: 0 10px;
+    }
+  }
+  
