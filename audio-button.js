@@ -7,6 +7,7 @@ class AudioButton extends HTMLElement {
       super();
       this.attachShadow({ mode: 'open' });
       this.audio = new Audio();
+      this.audio.preload = 'auto'; // Precargar el audio
     }
   
     connectedCallback() {
@@ -21,6 +22,7 @@ class AudioButton extends HTMLElement {
       }
       if (attr === 'audio-src') {
         this.audio.src = newValue || '';
+        this.audio.load(); // Cargar el audio si cambia el atributo
       }
     }
   
