@@ -8,6 +8,7 @@ class AudioButton extends HTMLElement {
       this.attachShadow({ mode: 'open' });
       this.audio = new Audio();
       this.audio.preload = 'auto'; // Precargar el audio
+      this.activatedMultipleAudios = document.getElementById("audio-toggle")
     }
   
     connectedCallback() {
@@ -27,7 +28,7 @@ class AudioButton extends HTMLElement {
     }
   
     playAudio() {
-      document.querySelectorAll('audio-button').forEach(btn => btn.stopAudio());
+      if(!this.activatedMultipleAudios.checked) document.querySelectorAll('audio-button').forEach(btn => btn.stopAudio());
       this.audio.play();
     }
   
