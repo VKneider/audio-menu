@@ -19,17 +19,21 @@ class AudioButton extends HTMLElement {
     this.button = this.shadowRoot.querySelector('button');
 
     // Agregar eventos
-    this.button.addEventListener('click', this.playAudio.bind(this));
+    this.button.addEventListener('click', this.toggleAudio.bind(this));
     this.audio.addEventListener('play', this.highlightButton.bind(this));
     this.audio.addEventListener('ended', this.resetButton.bind(this));
   }
 
-  playAudio() {
-    // Detener otros audios si el toggle no está activado
-    if (!this.activatedMultipleAudios.checked) {
-      document.querySelectorAll('audio-button').forEach(btn => btn.stopAudio());
+  toggleAudio() {
+    if (this.audio.paused) {
+      // Si el toggle está desactivado, detener otros audios
+      if (!this.activatedMultipleAudios.checked) {
+        document.querySelectorAll('audio-button').forEach(btn => btn.stopAudio());
+      }
+      this.audio.play();
+    } else {
+      this.stopAudio();
     }
-    this.audio.play();
   }
 
   stopAudio() {
