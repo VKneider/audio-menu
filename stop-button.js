@@ -23,7 +23,7 @@ class StopButton extends HTMLElement {
             width: 100%;
             max-width: 300px;
             margin: 10px auto;
-            background-color: #2563eb; /* Azul */
+            background-color: purple; /* Azul */
             color: white;
             border: 2px solid white;
             border-radius: 10px;
