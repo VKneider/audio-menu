@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="audio-button.js"></script>
   <script type="module" src="stop-button.js"></script>
+  <script type="module" src="modal.js"></script>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
@@ -21,15 +22,34 @@
       </label>
     </label>
     <stop-button></stop-button>
-    <audio-button message="Aplausos" audio-src="audios/aplausos.mp3"></audio-button>
-    <audio-button message="Pecador a Pescador" audio-src="audios/pecador.mp3"></audio-button>
-    <audio-button message="badum tss" audio-src="audios/badum.mp3"></audio-button>
-    <audio-button message="Redoble " audio-src="audios/redoble.mp3"></audio-button>
-    <audio-button message="Alma Llanera" audio-src="audios/alma.mp3"></audio-button>
-    <audio-button message="Risas" audio-src="audios/risas.mp3"></audio-button>
-    <audio-button message="Electronica" audio-src="audios/bangarang.mp3"></audio-button>
-    <audio-button message="Miau Miau" audio-src="audios/miau.mp3"></audio-button>
+    <button id="open-modal" class="add-audio-btn">➕ Añadir Audio</button>
 
+    <div id="audios">
+      <audio-button message="Aplausos" audio-src="audios/aplausos.mp3"></audio-button>
+      <audio-button message="Pecador a Pescador" audio-src="audios/pecador.mp3"></audio-button>
+      <audio-button message="badum tss" audio-src="audios/badum.mp3"></audio-button>
+      <audio-button message="Redoble " audio-src="audios/redoble.mp3"></audio-button>
+      <audio-button message="Alma Llanera" audio-src="audios/alma.mp3"></audio-button>
+      <audio-button message="Risas" audio-src="audios/risas.mp3"></audio-button>
+      <audio-button message="Electronica" audio-src="audios/bangarang.mp3"></audio-button>
+      <audio-button message="Miau Miau" audio-src="audios/miau.mp3"></audio-button>
+    </div>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Añadir Audio</h2>
+      <label for="audio-message">Mensaje del botón:</label>
+      <input type="text" id="audio-message" placeholder="Ejemplo: Aplausos" />
+      
+      <label for="audio-file">Selecciona un archivo de audio:</label>
+      <input type="file" id="audio-file" accept="audio/*" />
+
+      <div class="modal-buttons">
+        <button id="add-audio">Añadir</button>
+        <button id="close-modal" class="cancel-btn">Cancelar</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>
